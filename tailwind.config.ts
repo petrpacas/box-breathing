@@ -1,20 +1,30 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      keyframes: {
+        bgColorLight: {
+          "0%, 100%": { backgroundColor: colors.indigo[600] },
+          "50%": { backgroundColor: colors.indigo[700] },
+        },
+        bgColorDark: {
+          "0%, 100%": { backgroundColor: colors.indigo[400] },
+          "50%": { backgroundColor: colors.indigo[300] },
+        },
       },
+    },
+    animation: {
+      breatheLight: "bgColorLight 2s ease-in-out infinite",
+      breatheDark: "bgColorDark 2s ease-in-out infinite",
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
