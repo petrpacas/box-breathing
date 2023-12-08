@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin-ext"] });
 
 export const metadata: Metadata = {
-  title: "Breathe",
-  description: "In. And out.",
+  title: "Box Breathing",
+  description: "Inhale. Hold. Exhale. Hold.",
 };
 
 export default function RootLayout({

@@ -5,7 +5,7 @@ import { useInterval } from "./hooks/useInterval";
 export default function Counter() {
   const [level, setLevel] = useState<number>(4);
   const [count, setCount] = useState<number>(1);
-  const [phase, setPhase] = useState<number>(0);
+  const [phase, setPhase] = useState<number>(1);
   const [timer, setTimer] = useState<number | null>(null);
   const [breathing, setBreathing] = useState<boolean>(false);
 
@@ -13,8 +13,8 @@ export default function Counter() {
     if (count >= level) {
       setCount(1);
 
-      if (phase >= 3) {
-        setPhase(0);
+      if (phase >= 4) {
+        setPhase(1);
       } else {
         setPhase((p) => p + 1);
       }
@@ -29,18 +29,18 @@ export default function Counter() {
     } else {
       setTimer(null);
       setCount(1);
-      setPhase(0);
+      setPhase(1);
     }
   }, [breathing]);
 
   const phaseText = () => {
     switch (phase) {
-      case 0:
-        return "Inhale";
-      case 2:
-        return "Exhale";
       case 1:
+        return "Inhale";
       case 3:
+        return "Exhale";
+      case 2:
+      case 4:
         return "Hold";
       default:
         return;
@@ -63,9 +63,9 @@ export default function Counter() {
         <div
           className={`${
             breathing
-              ? phase === 0 || phase === 1
-                ? "animate-breatheLight dark:animate-breatheDark h-full w-full"
-                : "animate-breatheLight dark:animate-breatheDark h-8 w-8"
+              ? phase === 1 || phase === 2
+                ? "h-full w-full animate-breatheLight dark:animate-breatheDark"
+                : "h-8 w-8 animate-breatheLight dark:animate-breatheDark"
               : "h-4 w-4"
           } rounded-full bg-indigo-600 transition-[height,width] ease-linear dark:bg-indigo-400`}
           style={{
