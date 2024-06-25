@@ -10,7 +10,7 @@ Start with 4s for each phase (4s inhale, 4s hold, 4s exhale, 4s hold), and try t
 
 ## Where is this app running?
 
-Check it out at [box-breathing-app.netlify.com](https://box-breathing-app.netlify.com/) and breathe!
+Check it out at [box-breathing-app.netlify.app](https://box-breathing-app.netlify.app/) and breathe!
 
 ## Would you like to run it on your localhost?
 
